@@ -28,8 +28,10 @@ class MLP:
             prev_A = X if idx == 0 else self.layers[idx - 1].A
             dA = layer.backward(dA, prev_A, learning_rate)
 
-    def train(self, X_train, y_train, X_val, y_val, epochs, learning_rate):
-        loss_history = []
+    def train(
+        self, X_train, y_train, X_val, y_val, epochs, learning_rate, print_loss=False
+    ):
+        train_loss_history = []
         val_loss_history = []
         weight_history = []
 
@@ -42,17 +44,17 @@ class MLP:
             y_val_pred = self.forward(X_val)
             val_loss = self.loss(y_val, y_val_pred)
 
-            loss_history.append(loss)
+            train_loss_history.append(loss)
             val_loss_history.append(val_loss)
             avg_weights = [np.mean(layer.W) for layer in self.layers]
             weight_history.append(avg_weights)
 
-            # if (epoch + 1) % max(1, (epochs // 10)) == 0:
-            #     print(
-            #         f"Epoka {epoch + 1}/{epochs}, błąd treningowy: {loss:.6f}, walidacyjny: {val_loss:.6f}"
-            #     )
+            if print_loss and (epoch + 1) % max(1, (epochs // 10)) == 0:
+                print_loss(
+                    f"Epoka {epoch + 1}/{epochs}, błąd treningowy: {loss:.6f}, walidacyjny: {val_loss:.6f}"
+                )
 
-        return loss_history, val_loss_history, weight_history
+        return train_loss_history, val_loss_history, weight_history
 
     def predict(self, X):
         return self.forward(X)

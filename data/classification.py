@@ -3,13 +3,14 @@ from data.types import ClassificationType, Size
 
 
 def _get_classification_filename(
-    class_type: ClassificationType, class_size: Size
+    class_type: ClassificationType, class_size: Size, test: bool = False
 ) -> str:
-    return f"data/Classification/data.{class_type.value}.train.{class_size.value}.csv"
+    suffix = "test" if test else "train"
+    return f"data/Classification/data.{class_type.value}.{suffix}.{class_size.value}.csv"
 
 
-def get_classification_data(class_type: ClassificationType, class_size: Size):
-    filename = _get_classification_filename(class_type, class_size)
+def get_classification_data(class_type: ClassificationType, class_size: Size, test: bool = False):
+    filename = _get_classification_filename(class_type, class_size, test)
     data = np.loadtxt(filename, delimiter=",", skiprows=1)
 
     X = data[:, 0:2]
