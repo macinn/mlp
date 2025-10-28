@@ -47,10 +47,10 @@ class MLP:
             avg_weights = [np.mean(layer.W) for layer in self.layers]
             weight_history.append(avg_weights)
 
-            if (epoch + 1) % max(1, (epochs // 10)) == 0:
-                print(
-                    f"Epoka {epoch + 1}/{epochs}, błąd treningowy: {loss:.6f}, walidacyjny: {val_loss:.6f}"
-                )
+            # if (epoch + 1) % max(1, (epochs // 10)) == 0:
+            #     print(
+            #         f"Epoka {epoch + 1}/{epochs}, błąd treningowy: {loss:.6f}, walidacyjny: {val_loss:.6f}"
+            #     )
 
         return loss_history, val_loss_history, weight_history
 
