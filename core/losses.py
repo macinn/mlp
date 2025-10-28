@@ -12,7 +12,7 @@ def mae(y_true, y_pred):
 
 
 def mae_derivative(y_true, y_pred):
-    return np.sign(y_pred - y_true) / y_true.size
+    return np.sign(y_pred - y_true)
 
 
 def mse(y_true, y_pred):
