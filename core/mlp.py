@@ -1,4 +1,5 @@
 import numpy as np
+import pickle
 from core.layer import Layer
 from core.losses import get_loss
 
@@ -50,7 +51,7 @@ class MLP:
             weight_history.append(avg_weights)
 
             if print_loss and (epoch + 1) % max(1, (epochs // 10)) == 0:
-                print_loss(
+                print(
                     f"Epoka {epoch + 1}/{epochs}, błąd treningowy: {loss:.6f}, walidacyjny: {val_loss:.6f}"
                 )
 
@@ -58,3 +59,12 @@ class MLP:
 
     def predict(self, X):
         return self.forward(X)
+
+    def save(self, filepath: str):
+        with open(filepath, "wb") as f:
+            pickle.dump(self, f)
+
+    @staticmethod
+    def load(filepath: str):
+        with open(filepath, "rb") as f:
+            return pickle.load(f)

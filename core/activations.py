@@ -7,6 +7,7 @@ class Fun(Enum):
     ReLU = "relu"
     Tanh = "tanh"
     Linear = "linear"
+    Softmax = "softmax"
 
 
 def sigmoid(x):
@@ -42,6 +43,16 @@ def linear_derivative(x):
     return np.ones_like(x)
 
 
+def softmax(x):
+    x_shift = x - np.max(x, axis=1, keepdims=True)
+    exp_x = np.exp(x_shift)
+    return exp_x / np.sum(exp_x, axis=1, keepdims=True)
+
+
+def softmax_derivative(_x):
+    return np.ones_like(_x)
+
+
 def get_activation(name: Fun):
     if name == Fun.Sigmoid:
         return sigmoid, sigmoid_derivative
@@ -51,5 +62,7 @@ def get_activation(name: Fun):
         return tanh, tanh_derivative
     elif name == Fun.Linear:
         return linear, linear_derivative
+    elif name == Fun.Softmax:
+        return softmax, softmax_derivative
     else:
         raise ValueError(f"Nieznana funkcja aktywacji: {name}")
