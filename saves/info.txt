@@ -1,6 +1,8 @@
-Test accuracy: 0.9186	mlp_save_20251031_194130.pkl
-Test accuracy: 0.9184	mlp_save_20251031_200329.pkl
 Test accuracy: 0.9394	mlp_save_20251031_211550.pkl
 Test accuracy: 0.9384	mlp_save_20251031_221838.pkl
 Test accuracy: 0.9498	mlp_save_20251101_134201.pkl	[784, 256, 128, 64, 10]	[<Fun.ReLU: 'relu'>, <Fun.ReLU: 'relu'>, <Fun.ReLU: 'relu'>, <Fun.Softmax: 'softmax'>]
 Test accuracy: 0.9526	mlp_save_20251101_140653.pkl	[784, 256, 128, 64, 32, 10]	[<Fun.ReLU: 'relu'>, <Fun.ReLU: 'relu'>, <Fun.ReLU: 'relu'>, <Fun.ReLU: 'relu'>, <Fun.Softmax: 'softmax'>]
+Test accuracy: 0.9692	mlp_save_20251102_173700.pkl	[784, 256, 128, 64, 32, 10]	[<Fun.ReLU: 'relu'>, <Fun.ReLU: 'relu'>, <Fun.ReLU: 'relu'>, <Fun.ReLU: 'relu'>, <Fun.Softmax: 'softmax'>]
+Test accuracy: 0.9693	mlp_save_20251102_175709.pkl	[784, 256, 128, 64, 32, 10]	[<Fun.ReLU: 'relu'>, <Fun.ReLU: 'relu'>, <Fun.ReLU: 'relu'>, <Fun.ReLU: 'relu'>, <Fun.Softmax: 'softmax'>]
+Test accuracy: 0.9702	mlp_save_20251102_180149.pkl	[784, 256, 128, 64, 32, 10]	[<Fun.ReLU: 'relu'>, <Fun.ReLU: 'relu'>, <Fun.ReLU: 'relu'>, <Fun.ReLU: 'relu'>, <Fun.Softmax: 'softmax'>]
+Test accuracy: 0.9710	mlp_save_20251102_180928.pkl	[784, 256, 128, 64, 32, 10]	[<Fun.ReLU: 'relu'>, <Fun.ReLU: 'relu'>, <Fun.ReLU: 'relu'>, <Fun.ReLU: 'relu'>, <Fun.Softmax: 'softmax'>]
